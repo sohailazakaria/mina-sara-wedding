@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Holy Matrimony of Mina & Sara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --palette-deep-berry: #CD104D;
+      --palette-magenta: #F40E5E;
+      --palette-coral: #FE676E;
+      --palette-soft-pink: #FF98A8;
+      --palette-blush: #FFB4C9;
+      --palette-cream-peach: #FFC89A;
+      --palette-warm-gold: #F5A91B;
+      --palette-orange: #FF7D00;
+      
+      --bg-gradient: linear-gradient(180deg, #fffaf6 0%, #fff1f4 30%, #fffaf6 65%, #fef4f0 100%);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --text-main: #2b1b22;
+      --text-muted: #735360;
+      --border-accent: rgba(205, 16, 77, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    .display-font {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.14em;
+    }
+
+    /* ULTRA-LUSH CONTINUOUS SCROLLING VINES */
+    .scrolling-pergola {
+      position: absolute;
+      top: 0;
+      width: 125px;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+      filter: drop-shadow(0 4px 10px rgba(205, 16, 77, 0.08));
+    }
+
+    .pergola-left {
+      left: 0;
+    }
+
+    .pergola-right {
+      right: 0;
+      transform: scaleX(-1);
+    }
+
+    @media (max-width: 850px) {
+      .scrolling-pergola {
+        width: 85px;
+        opacity: 0.88;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .scrolling-pergola {
+        width: 52px;
+        opacity: 0.72;
+      }
+    }
+
+    /* FLOATING DRIFTING PETALS LAYER */
+    .falling-petals-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 15;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      border-radius: 50% 0 50% 50%;
+      animation: driftDown linear infinite;
+    }
+
+    @keyframes driftDown {
+      0% {
+        transform: translateY(-50px) rotate(0deg) translateX(0);
+        opacity: 0;
+      }
+      10% { opacity: 0.85; }
+      90% { opacity: 0.85; }
+      100% {
+        transform: translateY(105vh) rotate(360deg) translateX(85px);
+        opacity: 0;
+      }
+    }
+
+    /* DENSE BOUGAINVILLEA ARCH CANOPY */
+    .bougainvillea-arch {
+      width: 100%;
+      max-width: 480px;
+      height: 145px;
+      margin: 0 auto -12px;
+      display: block;
+      pointer-events: none;
+      filter: drop-shadow(0 6px 14px rgba(205, 16, 77, 0.1));
+    }
+
+    /* Envelope Gate Screen */
+    #gate-screen {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, #fff2f5 0%, #ffe1e8 100%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .envelope-card {
+      background: #ffffff;
+      padding: 38px 24px 44px;
+      border-radius: 16px;
+      box-shadow: 0 16px 45px rgba(205, 16, 77, 0.12);
+      border: 1px solid var(--border-accent);
+      max-width: 440px;
+      width: 100%;
+      position: relative;
+    }
+
+    .envelope-card::before {
+      content: "";
+      position: absolute;
+      top: 8px; left: 8px; right: 8px; bottom: 8px;
+      border: 1px solid rgba(245, 169, 27, 0.4);
+      border-radius: 10px;
+      pointer-events: none;
+    }
+
+    /* Option 3 Cross & Wreath */
+    .cross-wreath-svg {
+      width: 105px;
+      height: 105px;
+      margin: 0 auto 8px;
+      display: block;
+    }
+
+    .open-btn {
+      margin-top: 24px;
+      padding: 14px 44px;
+      background: linear-gradient(135deg, var(--palette-deep-berry) 0%, var(--palette-magenta) 50%, var(--palette-coral) 100%);
+      border: none;
+      border-radius: 50px;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 6px 22px rgba(244, 14, 94, 0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .open-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(244, 14, 94, 0.5);
+    }
+
+    /* Floating Music Control Button */
+    #music-btn {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid var(--border-accent);
+      box-shadow: 0 4px 18px rgba(205, 16, 77, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 95;
+      font-size: 1.25rem;
+      transition: transform 0.2s;
+    }
+
+    #music-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 30px 20px 80px;
+      text-align: center;
+      position: relative;
+      z-index: 20;
+    }
+
+    .header-names {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.85rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin: 12px 0;
+      background: linear-gradient(135deg, var(--palette-deep-berry), var(--palette-orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.02em;
+    }
+
+    .header-ampersand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 2.1rem;
+      color: var(--palette-orange);
+      display: block;
+      margin: -4px 0;
+      -webkit-text-fill-color: var(--palette-orange);
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 18px auto;
+      color: var(--palette-warm-gold);
+    }
+
+    .divider::before, .divider::after {
+      content: "";
+      width: 55px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--palette-warm-gold));
+    }
+
+    .divider::after {
+      background: linear-gradient(270deg, transparent, var(--palette-warm-gold));
+    }
+
+    .verse {
+      font-style: italic;
+      color: var(--text-muted);
+      margin: 18px auto 24px;
+      max-width: 480px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .cal-btn {
+      display: inline-block;
+      padding: 11px 26px;
+      background: #ffffff;
+      border: 1px solid var(--border-accent);
+      border-radius: 30px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--palette-deep-berry);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+      transition: all 0.25s ease;
+    }
+
+    .cal-btn:hover {
+      background: #fff5f7;
+      border-color: var(--palette-magenta);
+    }
+
+    /* Countdown Grid */
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 16px 0 40px;
+    }
+
+    .countdown-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-accent);
+      padding: 14px 12px;
+      border-radius: 8px;
+      min-width: 68px;
+      box-shadow: 0 4px 14px rgba(205, 16, 77, 0.05);
+    }
+
+    .countdown-item span {
+      display: block;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--palette-deep-berry);
+      font-family: 'Cinzel', serif;
+    }
+
+    .countdown-item label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* Carousel */
+    .gallery-section {
+      margin: 32px 0 40px;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 540px;
+      margin: 18px auto 0;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--border-accent);
+      box-shadow: 0 10px 30px rgba(205, 16, 77, 0.08);
+      background: #fff;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      width: 100%;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      aspect-ratio: 4/5;
+      position: relative;
+      background: #fdf2f4;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--border-accent);
+      color: var(--palette-deep-berry);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      z-index: 10;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .carousel-btn:hover {
+      background: #ffffff;
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .carousel-prev { left: 12px; }
+    .carousel-next { right: 12px; }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--palette-blush);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dot.active {
+      background: var(--palette-deep-berry);
+      transform: scale(1.3);
+      width: 16px;
+      border-radius: 10px;
+    }
+
+    /* Event Card */
+    .event-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-accent);
+      border-radius: 14px;
+      padding: 36px 22px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 22px rgba(205, 16, 77, 0.05);
+      position: relative;
+    }
+
+    .event-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--palette-magenta);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .event-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      color: var(--palette-deep-berry);
+    }
+
+    .arabic-title {
+      font-size: 1.2rem;
+      color: var(--palette-orange);
+      margin-bottom: 14px;
+      font-weight: 500;
+      direction: rtl;
+    }
+
+    .event-location {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    .btn-link {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      color: var(--palette-deep-berry);
+      text-decoration: none;
+      padding: 10px 24px;
+      border: 1px solid var(--palette-coral);
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-link:hover {
+      background: var(--palette-coral);
+      color: #fff;
+    }
+
+    /* RSVP Form */
+    form {
+      background: var(--card-bg);
+      border: 1px solid var(--border-accent);
+      border-radius: 14px;
+      padding: 38px 24px;
+      text-align: left;
+      margin-top: 36px;
+      box-shadow: 0 8px 24px rgba(205, 16, 77, 0.05);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--palette-deep-berry);
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid rgba(205, 16, 77, 0.2);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: #fff;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--palette-deep-berry) 0%, var(--palette-magenta) 50%, var(--palette-coral) 100%);
+      border: none;
+      border-radius: 6px;
+      color: white;
+      padding: 15px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .wishes-board {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .wish-item {
+      background: #ffffff;
+      border: 1px solid var(--border-accent);
+      border-left: 3px solid var(--palette-magenta);
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .wish-author {
+      font-weight: 600;
+      color: var(--palette-deep-berry);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING DRIFTING PETALS LAYER -->
+  <div id="petals-container" class="falling-petals-layer"></div>
+
+  <!-- ULTRA-DENSE CONTINUOUS SCROLLING VINES (FULL DOCUMENT HEIGHT) -->
+  <!-- LEFT MARGIN VINE -->
+  <svg class="scrolling-pergola pergola-left" viewBox="0 0 130 2400" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Primary Intertwining Woody Vines -->
+    <path d="M0 0 C55 120 20 280 60 440 C15 600 70 780 25 960 C75 1160 15 1360 65 1560 C20 1760 70 1960 25 2160 C65 2300 15 2400 0 2400" stroke="#684232" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M0 40 C45 200 75 350 30 520 C70 700 35 880 75 1060 C30 1260 80 1460 35 1680 C75 1880 30 2080 60 2280 L0 2400" stroke="#8A5A44" stroke-width="2.8" stroke-linecap="round" opacity="0.75"/>
+    <path d="M0 100 C30 220 50 380 20 560 C50 740 20 920 60 1120 C15 1320 55 1520 20 1740 C50 1960 20 2180 50 2380" stroke="#A7745B" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Cascading Foliage Base (Olive & Forest Greens) -->
+    <path d="M15 40 Q45 25 50 50 Q25 65 15 40Z" fill="#5F7449"/>
+    <path d="M35 140 Q65 120 70 150 Q45 168 35 140Z" fill="#718B57"/>
+    <path d="M10 240 Q40 225 45 250 Q20 268 10 240Z" fill="#4B5E38"/>
+    <path d="M40 330 Q75 310 80 340 Q50 360 40 330Z" fill="#5F7449"/>
+    <path d="M20 440 Q50 420 55 450 Q30 468 20 440Z" fill="#718B57"/>
+    <path d="M45 540 Q80 520 85 550 Q55 570 45 540Z" fill="#4B5E38"/>
+    <path d="M15 650 Q50 630 55 660 Q25 680 15 650Z" fill="#5F7449"/>
+    <path d="M50 760 Q85 740 90 770 Q60 790 50 760Z" fill="#718B57"/>
+    <path d="M20 870 Q55 850 60 880 Q30 900 20 870Z" fill="#4B5E38"/>
+    <path d="M55 970 Q90 950 95 980 Q65 1000 55 970Z" fill="#5F7449"/>
+    <path d="M15 1080 Q50 1060 55 1090 Q25 1110 15 1080Z" fill="#718B57"/>
+    <path d="M50 1190 Q85 1170 90 1200 Q60 1220 50 1190Z" fill="#4B5E38"/>
+    <path d="M20 1300 Q55 1280 60 1310 Q30 1330 20 1300Z" fill="#5F7449"/>
+    <path d="M55 1410 Q90 1390 95 1420 Q65 1440 55 1410Z" fill="#718B57"/>
+    <path d="M15 1520 Q50 1500 55 1530 Q25 1550 15 1520Z" fill="#4B5E38"/>
+    <path d="M50 1630 Q85 1610 90 1640 Q60 1660 50 1630Z" fill="#5F7449"/>
+    <path d="M20 1740 Q55 1720 60 1750 Q30 1770 20 1740Z" fill="#718B57"/>
+    <path d="M55 1850 Q90 1830 95 1860 Q65 1880 55 1850Z" fill="#4B5E38"/>
+    <path d="M15 1960 Q50 1940 55 1970 Q25 1990 15 1960Z" fill="#5F7449"/>
+    <path d="M50 2070 Q85 2050 90 2080 Q60 2100 50 2070Z" fill="#718B57"/>
+    <path d="M20 2180 Q55 2160 60 2190 Q30 2210 20 2180Z" fill="#4B5E38"/>
+    <path d="M45 2290 Q80 2270 85 2300 Q55 2320 45 2290Z" fill="#5F7449"/>
+
+    <!-- Dense Bougainvillea Multi-Layer Floral Clusters (Every 80px-100px) -->
+    <!-- Group 1 (y: 20-70) -->
+    <path d="M10 50 C28 30 52 48 38 70 C22 75 10 65 10 50Z" fill="#CD104D"/>
+    <path d="M28 42 C48 24 68 45 50 66 C38 60 30 50 28 42Z" fill="#F40E5E"/>
+    <path d="M40 55 C58 40 72 58 56 74 C44 70 40 60 40 55Z" fill="#FE676E"/>
+    <path d="M48 68 C62 55 74 70 60 84 C48 80 44 72 48 68Z" fill="#FF7D00"/>
+    <circle cx="34" cy="52" r="3" fill="#FFC89A"/><circle cx="50" cy="65" r="2.5" fill="#F5A91B"/>
+
+    <!-- Group 2 (y: 120-170) -->
+    <path d="M30 145 C50 125 72 145 56 168 C40 172 28 162 30 145Z" fill="#FE676E"/>
+    <path d="M48 138 C68 120 88 140 70 162 C58 156 50 146 48 138Z" fill="#FF7D00"/>
+    <path d="M60 150 C78 135 92 152 76 170 C64 165 60 156 60 150Z" fill="#FFC89A"/>
+    <path d="M42 165 C58 150 72 168 56 182 C44 180 40 170 42 165Z" fill="#CD104D"/>
+    <circle cx="52" cy="150" r="3" fill="#F5A91B"/><circle cx="68" cy="160" r="2.5" fill="#FFB4C9"/>
+
+    <!-- Group 3 (y: 220-270) -->
+    <path d="M15 250 C32 232 54 250 40 270 C25 274 15 264 15 250Z" fill="#CD104D"/>
+    <path d="M32 242 C50 225 68 245 52 265 C40 260 32 250 32 242Z" fill="#F40E5E"/>
+    <path d="M45 255 C60 240 74 258 58 274 C46 270 42 260 45 255Z" fill="#FF98A8"/>
+    <circle cx="36" cy="252" r="2.8" fill="#FFC89A"/>
+
+    <!-- Group 4 (y: 320-370) -->
+    <path d="M35 345 C55 325 78 346 62 368 C46 372 32 362 35 345Z" fill="#FF7D00"/>
+    <path d="M52 336 C72 318 92 338 75 360 C62 355 54 345 52 336Z" fill="#FE676E"/>
+    <path d="M65 350 C82 335 98 352 80 370 C68 365 64 355 65 350Z" fill="#CD104D"/>
+    <path d="M48 365 C65 350 78 368 62 384 C48 380 45 372 48 365Z" fill="#FFB4C9"/>
+    <circle cx="56" cy="348" r="3" fill="#F5A91B"/><circle cx="74" cy="358" r="2.5" fill="#FFC89A"/>
+
+    <!-- Group 5 (y: 420-470) -->
+    <path d="M18 450 C38 430 60 450 45 472 C28 475 18 465 18 450Z" fill="#F40E5E"/>
+    <path d="M36 440 C55 422 75 442 58 464 C45 458 38 448 36 440Z" fill="#CD104D"/>
+    <path d="M48 455 C65 438 80 456 64 474 C50 470 46 460 48 455Z" fill="#FE676E"/>
+    <circle cx="40" cy="450" r="2.8" fill="#FFC89A"/>
+
+    <!-- Group 6 (y: 520-580) -->
+    <path d="M38 545 C58 525 82 546 65 570 C48 574 35 562 38 545Z" fill="#FE676E"/>
+    <path d="M58 535 C78 518 98 538 80 560 C68 554 58 545 58 535Z" fill="#FF7D00"/>
+    <path d="M70 550 C88 535 102 552 85 570 C72 565 68 555 70 550Z" fill="#FFC89A"/>
+    <path d="M52 568 C68 552 82 570 66 586 C52 582 48 574 52 568Z" fill="#CD104D"/>
+    <circle cx="62" cy="548" r="3" fill="#F5A91B"/><circle cx="80" cy="558" r="2.5" fill="#FFB4C9"/>
+
+    <!-- Group 7 (y: 630-680) -->
+    <path d="M15 655 C35 635 58 655 42 678 C25 680 15 670 15 655Z" fill="#CD104D"/>
+    <path d="M34 645 C52 628 72 648 55 670 C42 664 34 654 34 645Z" fill="#F40E5E"/>
+    <path d="M46 660 C62 642 78 660 62 678 C48 674 44 665 46 660Z" fill="#FF98A8"/>
+    <circle cx="38" cy="655" r="2.8" fill="#FFC89A"/>
+
+    <!-- Group 8 (y: 730-790) -->
+    <path d="M42 750 C62 730 85 750 68 775 C52 778 38 768 42 750Z" fill="#FF7D00"/>
+    <path d="M60 740 C80 722 100 742 82 765 C70 758 60 750 60 740Z" fill="#FE676E"/>
+    <path d="M72 755 C90 738 105 756 88 775 C75 770 70 760 72 755Z" fill="#CD104D"/>
+    <path d="M55 770 C72 755 85 772 70 790 C55 785 52 778 55 770Z" fill="#FFC89A"/>
+    <circle cx="66" cy="752" r="3" fill="#F5A91B"/><circle cx="82" cy="762" r="2.5" fill="#FFB4C9"/>
+
+    <!-- Group 9 (y: 840-890) -->
+    <path d="M20 860 C38 840 60 860 45 882 C28 885 20 875 20 860Z" fill="#CD104D"/>
+    <path d="M38 850 C56 832 76 852 60 874 C46 868 38 858 38 850Z" fill="#F40E5E"/>
+    <path d="M50 865 C66 848 82 866 65 885 C52 880 48 870 50 865Z" fill="#FE676E"/>
+    <circle cx="42" cy="860" r="2.8" fill="#FFC89A"/>
+
+    <!-- Group 10 (y: 940-1000) -->
+    <path d="M45 955 C65 935 90 955 72 980 C55 984 42 972 45 955Z" fill="#FE676E"/>
+    <path d="M65 945 C85 928 105 948 88 970 C75 965 65 955 65 945Z" fill="#FF7D00"/>
+    <path d="M78 960 C95 945 110 962 92 980 C80 975 75 965 78 960Z" fill="#FFC89A"/>
+    <path d="M58 978 C75 962 90 980 72 998 C58 994 54 985 58 978Z" fill="#CD104D"/>
+    <circle cx="70" cy="958" r="3" fill="#F5A91B"/><circle cx="88" cy="968" r="2.5" fill="#FFB4C9"/>
+
+    <!-- Group 11 (y: 1050-1100) -->
+    <path d="M18 1070 C36 1050 58 1070 44 1092 C26 1095 18 1085 18 1070Z" fill="#F40E5E"/>
+    <path d="M35 1060 C54 1042 74 1062 58 1084 C44 1078 36 1068 35 1060Z" fill="#CD104D"/>
+    <path d="M48 1075 C64 1058 80 1076 64 1095 C50 1090 45 1080 48 1075Z" fill="#FF98A8"/>
+    <circle cx="40" cy="1070" r="2.8" fill="#FFC89A"/>
+
+    <!-- Group 12 (y: 1150-1210) -->
+    <path d="M40 1165 C60 1145 85 1165 68 1190 C50 1194 38 1182 40 1165Z" fill="#FF7D00"/>
+    <path d="M60 1155 C80 1138 100 1158 82 1180 C70 1175 60 1165 60 1155Z" fill="#FE676E"/>
+    <path d="M72 1170 C90 1155 105 1172 88 1190 C75 1185 70 1175 72 1170Z" fill="#CD104D"/>
+    <path d="M54 1188 C70 1172 85 1190 68 1208 C54 1204 50 1195 54 1188Z" fill="#FFC89A"/>
+    <circle cx="65" cy="1168" r="3" fill="#F5A91B"/><circle cx="82" cy="1178" r="2.5" fill="#FFB4C9"/>
+
+    <!-- Group 13 (y: 1260-1310) -->
+    <path d="M22 1280 C40 1260 62 1280 48 1302 C30 1305 22 1295 22 1280Z" fill="#CD104D"/>
+    <path d="M40 1270 C58 1252 78 1272 62 1294 C48 1288 40 1278 40 1270Z" fill="#F40E5E"/>
+    <path d="M52 1285 C68 1268 84 1286 68 1305 C54 1300 50 1290 52 1285Z" fill="#FE676E"/>
+    <circle cx="44" cy="1280" r="2.8" fill="#FFC89A"/>
+
+    <!-- Group 14 (y: 1360-1420) -->
+    <path d="M45 1375 C65 1355 90 1375 72 1400 C55 1404 42 1392 45 1375Z" fill="#FE676E"/>
+    <path d="M65 1365 C85 1348 105 1368 88 1390 C75 1385 65 1375 65 1365Z" fill="#FF7D00"/>
+    <path d="M78 1380 C95 1365 110 1382 92 1400 C80 1395 75 1385 78 1380Z" fill="#FFC89A"/>
+    <path d="M58 1398 C75 1382 90 1400 72 1418 C58 1414 54 1405 58 1398Z" fill="#CD104D"/>
+    <circle cx="70" cy="1378" r="3" fill="#F5A91B"/><circle cx="88" cy="1388" r="2.5" fill="#FFB4C9"/>
+
+    <!-- Group 15 (y: 1480-1530) -->
+    <path d="M18 1495 C36 1475 58 1495 44 1518 C26 1520 18 1510 18 1495Z" fill="#F40E5E"/>
+    <path d="M35 1485 C54 1468 74 1488 58 1510 C44 1504 36 1495 35 1485Z" fill="#CD104D"/>
+    <path d="M48 1500 C64 1482 80 1500 64 1520 C50 1515 45 1505 48 1500Z" fill="#FF98A8"/>
+    <circle cx="40" cy="1495" r="2.8" fill="#FFC89A"/>
+
+    <!-- Group 16 (y: 1580-1640) -->
+    <path d="M40 1595 C60 1575 85 1595 68 1620 C50 1624 38 1612 40 1595Z" fill="#FF7D00"/>
+    <path d="M60 1585 C80 1568 100 1588 82 1610 C70 1605 60 1595 60 1585Z" fill="#FE676E"/>
+    <path d="M72 1600 C90 1585 105 1602 88 1620 C75 1615 70 1605 72 1600Z" fill="#CD104D"/>
+    <path d="M54 1618 C70 1602 85 1620 68 1638 C54 1634 50 1625 54 1618Z" fill="#FFC89A"/>
+    <circle cx="65" cy="1598" r="3" fill="#F5A91B"/><circle cx="82" cy="1608" r="2.5" fill="#FFB4C9"/>
+
+    <!-- Group 17 (y: 1690-1740) -->
+    <path d="M22 1705 C40 1685 62 1705 48 1728 C30 1730 22 1720 22 1705Z" fill="#CD104D"/>
+    <path d="M40 1695 C58 1678 78 1698 62 1720 C48 1714 40 1705 40 1695Z" fill="#F40E5E"/>
+    <path d="M52 1710 C68 1692 84 1710 68 1730 C54 1725 50 1715 52 1710Z" fill="#FE676E"/>
+    <circle cx="44" cy="1705" r="2.8" fill="#FFC89A"/>
+
+    <!-- Group 18 (y: 1790-1850) -->
+    <path d="M45 1805 C65 1785 90 1805 72 1830 C55 1834 42 1822 45 1805Z" fill="#FE676E"/>
+    <path d="M65 1795 C85 1778 105 1798 88 1820 C75 1815 65 1805 65 1795Z" fill="#FF7D00"/>
+    <path d="M78 1810 C95 1795 110 1812 92 1830 C80 1825 75 1815 78 1810Z" fill="#FFC89A"/>
+    <path d="M58 1828 C75 1812 90 1830 72 1848 C58 1844 54 1835 58 1828Z" fill="#CD104D"/>
+    <circle cx="70" cy="1808" r="3" fill="#F5A91B"/><circle cx="88" cy="1818" r="2.5" fill="#FFB4C9"/>
+
+    <!-- Group 19 (y: 1900-1950) -->
+    <path d="M18 1915 C36 1895 58 1915 44 1938 C26 1940 18 1930 18 1915Z" fill="#F40E5E"/>
+    <path d="M35 1905 C54 1888 74 1908 58 1930 C44 1924 36 1915 35 1905Z" fill="#CD104D"/>
+    <path d="M48 1920 C64 1902 80 1920 64 1940 C50 1935 45 1925 48 1920Z" fill="#FF98A8"/>
+    <circle cx="40" cy="1915" r="2.8" fill="#FFC89A"/>
+
+    <!-- Group 20 (y: 2000-2060) -->
+    <path d="M40 2015 C60 1995 85 2015 68 2040 C50 2044 38 2032 40 2015Z" fill="#FF7D00"/>
+    <path d="M60 2005 C80 1988 100 2008 82 2030 C70 2025 60 2015 60 2005Z" fill="#FE676E"/>
+    <path d="M72 2020 C90 2005 105 2022 88 2040 C75 2035 70 2025 72 2020Z" fill="#CD104D"/>
+    <circle cx="65" cy="2018" r="3" fill="#F5A91B"/><circle cx="82" cy="2028" r="2.5" fill="#FFB4C9"/>
+
+    <!-- Group 21 (y: 2110-2160) -->
+    <path d="M22 2125 C40 2105 62 2125 48 2148 C30 2150 22 2140 22 2125Z" fill="#CD104D"/>
+    <path d="M40 2115 C58 2098 78 2118 62 2140 C48 2134 40 2125 40 2115Z" fill="#F40E5E"/>
+    <path d="M52 2130 C68 2112 84 2130 68 2150 C54 2145 50 2135 52 2130Z" fill="#FE676E"/>
+    <circle cx="44" cy="2125" r="2.8" fill="#FFC89A"/>
+
+    <!-- Group 22 (y: 2210-2270) -->
+    <path d="M45 2225 C65 2205 90 2225 72 2250 C55 2254 42 2242 45 2225Z" fill="#FE676E"/>
+    <path d="M65 2215 C85 2198 105 2218 88 2240 C75 2235 65 2225 65 2215Z" fill="#FF7D00"/>
+    <path d="M78 2230 C95 2215 110 2232 92 2250 C80 2245 75 2235 78 2230Z" fill="#CD104D"/>
+    <circle cx="70" cy="2228" r="3" fill="#F5A91B"/>
+
+    <!-- Group 23 (y: 2310-2370 Base) -->
+    <path d="M20 2330 C38 2310 60 2330 45 2352 C28 2355 20 2345 20 2330Z" fill="#CD104D"/>
+    <path d="M38 2320 C56 2302 76 2322 60 2344 C46 2338 38 2328 38 2320Z" fill="#F40E5E"/>
+    <circle cx="42" cy="2330" r="2.8" fill="#FFC89A"/>
+  </svg>
+
+  <!-- RIGHT MARGIN VINE (MIRRORED FOR MAXIMUM FLUIDITY) -->
+  <svg class="scrolling-pergola pergola-right" viewBox="0 0 130 2400" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0 C55 120 20 280 60 440 C15 600 70 780 25 960 C75 1160 15 1360 65 1560 C20 1760 70 1960 25 2160 C65 2300 15 2400 0 2400" stroke="#684232" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M0 40 C45 200 75 350 30 520 C70 700 35 880 75 1060 C30 1260 80 1460 35 1680 C75 1880 30 2080 60 2280 L0 2400" stroke="#8A5A44" stroke-width="2.8" stroke-linecap="round" opacity="0.75"/>
+    <path d="M0 100 C30 220 50 380 20 560 C50 740 20 920 60 1120 C15 1320 55 1520 20 1740 C50 1960 20 2180 50 2380" stroke="#A7745B" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+
+    <path d="M15 40 Q45 25 50 50 Q25 65 15 40Z" fill="#5F7449"/>
+    <path d="M35 140 Q65 120 70 150 Q45 168 35 140Z" fill="#718B57"/>
+    <path d="M10 240 Q40 225 45 250 Q20 268 10 240Z" fill="#4B5E38"/>
+    <path d="M40 330 Q75 310 80 340 Q50 360 40 330Z" fill="#5F7449"/>
+    <path d="M20 440 Q50 420 55 450 Q30 468 20 440Z" fill="#718B57"/>
+    <path d="M45 540 Q80 520 85 550 Q55 570 45 540Z" fill="#4B5E38"/>
+    <path d="M15 650 Q50 630 55 660 Q25 680 15 650Z" fill="#5F7449"/>
+    <path d="M50 760 Q85 740 90 770 Q60 790 50 760Z" fill="#718B57"/>
+    <path d="M20 870 Q55 850 60 880 Q30 900 20 870Z" fill="#4B5E38"/>
+    <path d="M55 970 Q90 950 95 980 Q65 1000 55 970Z" fill="#5F7449"/>
+    <path d="M15 1080 Q50 1060 55 1090 Q25 1110 15 1080Z" fill="#718B57"/>
+    <path d="M50 1190 Q85 1170 90 1200 Q60 1220 50 1190Z" fill="#4B5E38"/>
+    <path d="M20 1300 Q55 1280 60 1310 Q30 1330 20 1300Z" fill="#5F7449"/>
+    <path d="M55 1410 Q90 1390 95 1420 Q65 1440 55 1410Z" fill="#718B57"/>
+    <path d="M15 1520 Q50 1500 55 1530 Q25 1550 15 1520Z" fill="#4B5E38"/>
+    <path d="M50 1630 Q85 1610 90 1640 Q60 1660 50 1630Z" fill="#5F7449"/>
+    <path d="M20 1740 Q55 1720 60 1750 Q30 1770 20 1740Z" fill="#718B57"/>
+    <path d="M55 1850 Q90 1830 95 1860 Q65 1880 55 1850Z" fill="#4B5E38"/>
+    <path d="M15 1960 Q50 1940 55 1970 Q25 1990 15 1960Z" fill="#5F7449"/>
+    <path d="M50 2070 Q85 2050 90 2080 Q60 2100 50 2070Z" fill="#718B57"/>
+    <path d="M20 2180 Q55 2160 60 2190 Q30 2210 20 2180Z" fill="#4B5E38"/>
+    <path d="M45 2290 Q80 2270 85 2300 Q55 2320 45 2290Z" fill="#5F7449"/>
+
+    <path d="M10 50 C28 30 52 48 38 70 C22 75 10 65 10 50Z" fill="#CD104D"/>
+    <path d="M28 42 C48 24 68 45 50 66 C38 60 30 50 28 42Z" fill="#F40E5E"/>
+    <path d="M40 55 C58 40 72 58 56 74 C44 70 40 60 40 55Z" fill="#FE676E"/>
+    <path d="M48 68 C62 55 74 70 60 84 C48 80 44 72 48 68Z" fill="#FF7D00"/>
+    <circle cx="34" cy="52" r="3" fill="#FFC89A"/><circle cx="50" cy="65" r="2.5" fill="#F5A91B"/>
+
+    <path d="M30 145 C50 125 72 145 56 168 C40 172 28 162 30 145Z" fill="#FE676E"/>
+    <path d="M48 138 C68 120 88 140 70 162 C58 156 50 146 48 138Z" fill="#FF7D00"/>
+    <path d="M60 150 C78 135 92 152 76 170 C64 165 60 156 60 150Z" fill="#FFC89A"/>
+    <path d="M42 165 C58 150 72 168 56 182 C44 180 40 170 42 165Z" fill="#CD104D"/>
+    <circle cx="52" cy="150" r="3" fill="#F5A91B"/><circle cx="68" cy="160" r="2.5" fill="#FFB4C9"/>
+
+    <path d="M15 250 C32 232 54 250 40 270 C25 274 15 264 15 250Z" fill="#CD104D"/>
+    <path d="M32 242 C50 225 68 245 52 265 C40 260 32 250 32 242Z" fill="#F40E5E"/>
+    <path d="M45 255 C60 240 74 258 58 274 C46 270 42 260 45 255Z" fill="#FF98A8"/>
+    <circle cx="36" cy="252" r="2.8" fill="#FFC89A"/>
+
+    <path d="M35 345 C55 325 78 346 62 368 C46 372 32 362 35 345Z" fill="#FF7D00"/>
+    <path d="M52 336 C72 318 92 338 75 360 C62 355 54 345 52 336Z" fill="#FE676E"/>
+    <path d="M65 350 C82 335 98 352 80 370 C68 365 64 355 65 350Z" fill="#CD104D"/>
+    <circle cx="56" cy="348" r="3" fill="#F5A91B"/>
+
+    <path d="M18 450 C38 430 60 450 45 472 C28 475 18 465 18 450Z" fill="#F40E5E"/>
+    <path d="M36 440 C55 422 75 442 58 464 C45 458 38 448 36 440Z" fill="#CD104D"/>
+    <path d="M48 455 C65 438 80 456 64 474 C50 470 46 460 48 455Z" fill="#FE676E"/>
+    <circle cx="40" cy="450" r="2.8" fill="#FFC89A"/>
+
+    <path d="M38 545 C58 525 82 546 65 570 C48 574 35 562 38 545Z" fill="#FE676E"/>
+    <path d="M58 535 C78 518 98 538 80 560 C68 554 58 545 58 535Z" fill="#FF7D00"/>
+    <path d="M70 550 C88 535 102 552 85 570 C72 565 68 555 70 550Z" fill="#FFC89A"/>
+    <circle cx="62" cy="548" r="3" fill="#F5A91B"/>
+
+    <path d="M15 655 C35 635 58 655 42 678 C25 680 15 670 15 655Z" fill="#CD104D"/>
+    <path d="M34 645 C52 628 72 648 55 670 C42 664 34 654 34 645Z" fill="#F40E5E"/>
+    <path d="M46 660 C62 642 78 660 62 678 C48 674 44 665 46 660Z" fill="#FF98A8"/>
+    <circle cx="38" cy="655" r="2.8" fill="#FFC89A"/>
+
+    <path d="M42 750 C62 730 85 750 68 775 C52 778 38 768 42 750Z" fill="#FF7D00"/>
+    <path d="M60 740 C80 722 100 742 82 765 C70 758 60 750 60 740Z" fill="#FE676E"/>
+    <path d="M72 755 C90 738 105 756 88 775 C75 770 70 760 72 755Z" fill="#CD104D"/>
+    <circle cx="66" cy="752" r="3" fill="#F5A91B"/>
+
+    <path d="M20 860 C38 840 60 860 45 882 C28 885 20 875 20 860Z" fill="#CD104D"/>
+    <path d="M38 850 C56 832 76 852 60 874 C46 868 38 858 38 850Z" fill="#F40E5E"/>
+    <circle cx="42" cy="860" r="2.8" fill="#FFC89A"/>
+
+    <path d="M45 955 C65 935 90 955 72 980 C55 984 42 972 45 955Z" fill="#FE676E"/>
+    <path d="M65 945 C85 928 105 948 88 970 C75 965 65 955 65 945Z" fill="#FF7D00"/>
+    <path d="M78 960 C95 945 110 962 92 980 C80 975 75 965 78 960Z" fill="#FFC89A"/>
+    <circle cx="70" cy="958" r="3" fill="#F5A91B"/>
+
+    <path d="M18 1070 C36 1050 58 1070 44 1092 C26 1095 18 1085 18 1070Z" fill="#F40E5E"/>
+    <path d="M35 1060 C54 1042 74 1062 58 1084 C44 1078 36 1068 35 1060Z" fill="#CD104D"/>
+    <circle cx="40" cy="1070" r="2.8" fill="#FFC89A"/>
+
+    <path d="M40 1165 C60 1145 85 1165 68 1190 C50 1194 38 1182 40 1165Z" fill="#FF7D00"/>
+    <path d="M60 1155 C80 1138 100 1158 82 1180 C70 1175 60 1165 60 1155Z" fill="#FE676E"/>
+    <path d="M72 1170 C90 1155 105 1172 88 1190 C75 1185 70 1175 72 1170Z" fill="#CD104D"/>
+    <circle cx="65" cy="1168" r="3" fill="#F5A91B"/>
+
+    <path d="M22 1280 C40 1260 62 1280 48 1302 C30 1305 22 1295 22 1280Z" fill="#CD104D"/>
+    <path d="M40 1270 C58 1252 78 1272 62 1294 C48 1288 40 1278 40 1270Z" fill="#F40E5E"/>
+    <circle cx="44" cy="1280" r="2.8" fill="#FFC89A"/>
+
+    <path d="M45 1375 C65 1355 90 1375 72 1400 C55 1404 42 1392 45 1375Z" fill="#FE676E"/>
+    <path d="M65 1365 C85 1348 105 1368 88 1390 C75 1385 65 1375 65 1365Z" fill="#FF7D00"/>
+    <path d="M78 1380 C95 1365 110 1382 92 1400 C80 1395 75 1385 78 1380Z" fill="#FFC89A"/>
+    <circle cx="70" cy="1378" r="3" fill="#F5A91B"/>
+
+    <path d="M18 1495 C36 1475 58 1495 44 1518 C26 1520 18 1510 18 1495Z" fill="#F40E5E"/>
+    <path d="M35 1485 C54 1468 74 1488 58 1510 C44 1504 36 1495 35 1485Z" fill="#CD104D"/>
+    <circle cx="40" cy="1495" r="2.8" fill="#FFC89A"/>
+
+    <path d="M40 1595 C60 1575 85 1595 68 1620 C50 1624 38 1612 40 1595Z" fill="#FF7D00"/>
+    <path d="M60 1585 C80 1568 100 1588 82 1610 C70 1605 60 1595 60 1585Z" fill="#FE676E"/>
+    <circle cx="65" cy="1598" r="3" fill="#F5A91B"/>
+
+    <path d="M22 1705 C40 1685 62 1705 48 1728 C30 1730 22 1720 22 1705Z" fill="#CD104D"/>
+    <path d="M40 1695 C58 1678 78 1698 62 1720 C48 1714 40 1705 40 1695Z" fill="#F40E5E"/>
+    <circle cx="44" cy="1705" r="2.8" fill="#FFC89A"/>
+
+    <path d="M45 1805 C65 1785 90 1805 72 1830 C55 1834 42 1822 45 1805Z" fill="#FE676E"/>
+    <path d="M65 1795 C85 1778 105 1798 88 1820 C75 1815 65 1805 65 1795Z" fill="#FF7D00"/>
+    <circle cx="70" cy="1808" r="3" fill="#F5A91B"/>
+
+    <path d="M18 1915 C36 1895 58 1915 44 1938 C26 1940 18 1930 18 1915Z" fill="#F40E5E"/>
+    <path d="M35 1905 C54 1888 74 1908 58 1930 C44 1924 36 1915 35 1905Z" fill="#CD104D"/>
+    <circle cx="40" cy="1915" r="2.8" fill="#FFC89A"/>
+
+    <path d="M40 2015 C60 1995 85 2015 68 2040 C50 2044 38 2032 40 2015Z" fill="#FF7D00"/>
+    <path d="M60 2005 C80 1988 100 2008 82 2030 C70 2025 60 2015 60 2005Z" fill="#FE676E"/>
+    <circle cx="65" cy="2018" r="3" fill="#F5A91B"/>
+
+    <path d="M22 2125 C40 2105 62 2125 48 2148 C30 2150 22 2140 22 2125Z" fill="#CD104D"/>
+    <circle cx="44" cy="2125" r="2.8" fill="#FFC89A"/>
+
+    <path d="M45 2225 C65 2205 90 2225 72 2250 C55 2254 42 2242 45 2225Z" fill="#FE676E"/>
+    <circle cx="70" cy="2228" r="3" fill="#F5A91B"/>
+
+    <path d="M20 2330 C38 2310 60 2330 45 2352 C28 2355 20 2345 20 2330Z" fill="#CD104D"/>
+    <circle cx="42" cy="2330" r="2.8" fill="#FFC89A"/>
+  </svg>
+
+  <!-- Audio Player -->
+  <audio id="bg-audio" preload="auto">
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+  <button id="music-btn" onclick="toggleAudio()" title="Pause/Play Music">🎵</button>
+
+  <!-- Envelope Gate Screen -->
+  <div id="gate-screen">
+    <div class="envelope-card">
+      
+      <!-- Overflowing Dense Bougainvillea Floral Arch -->
+      <svg class="bougainvillea-arch" viewBox="0 0 480 145" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Intertwined Vine Arches -->
+        <path d="M10 135 C70 40 180 15 240 15 C300 15 410 40 470 135" stroke="#684232" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M35 140 C95 60 185 30 240 30 C295 30 385 60 445 140" stroke="#8A5A44" stroke-width="2.2" stroke-linecap="round" opacity="0.8"/>
+        
+        <!-- Canopy Leaves -->
+        <path d="M65 80 Q50 55 75 60 Q85 80 65 80Z" fill="#4B5E38"/>
+        <path d="M110 50 Q95 28 120 35 Q130 55 110 50Z" fill="#5F7449"/>
+        <path d="M170 32 Q155 12 180 18 Q190 38 170 32Z" fill="#718B57"/>
+        <path d="M310 32 Q325 12 300 18 Q290 38 310 32Z" fill="#718B57"/>
+        <path d="M370 50 Q385 28 360 35 Q350 55 370 50Z" fill="#5F7449"/>
+        <path d="M415 80 Q430 55 405 60 Q395 80 415 80Z" fill="#4B5E38"/>
+
+        <!-- Cascading Bougainvillea Blooms - Deep Berry, Magenta, Coral, Orange, Peach, Blush -->
+        <!-- Left Canopy Tier -->
+        <path d="M40 95 C25 80 32 60 52 65 C64 80 52 100 40 95Z" fill="#CD104D"/>
+        <path d="M58 90 C75 75 88 92 72 105 C55 105 48 95 58 90Z" fill="#F40E5E"/>
+        <path d="M45 78 C58 58 75 72 62 85 C50 85 40 82 45 78Z" fill="#FE676E"/>
+        <path d="M72 85 C88 68 102 85 86 100 C72 98 66 90 72 85Z" fill="#FF7D00"/>
+        <circle cx="55" cy="85" r="2.8" fill="#FFC89A"/><circle cx="75" cy="90" r="2.5" fill="#F5A91B"/>
+
+        <!-- Left-Center Tier -->
+        <path d="M120 48 C108 30 130 18 142 30 C142 48 130 55 120 48Z" fill="#FF7D00"/>
+        <path d="M138 42 C152 25 168 40 152 52 C138 52 130 45 138 42Z" fill="#FE676E"/>
+        <path d="M130 58 C118 70 140 78 148 62 C142 54 134 50 130 58Z" fill="#CD104D"/>
+        <path d="M152 52 C168 38 182 55 166 68 C152 66 148 58 152 52Z" fill="#FFC89A"/>
+        <circle cx="138" cy="46" r="2.8" fill="#F5A91B"/><circle cx="152" cy="56" r="2.5" fill="#FFB4C9"/>
+
+        <!-- Central Bougainvillea Crest -->
+        <path d="M225 18 C212 0 236 -8 246 8 C246 20 234 25 225 18Z" fill="#FE676E"/>
+        <path d="M246 14 C260 0 272 18 258 26 C246 26 238 22 246 14Z" fill="#F40E5E"/>
+        <path d="M236 26 C224 38 248 45 254 32 C248 24 242 22 236 26Z" fill="#CD104D"/>
+        <path d="M215 28 C202 15 220 5 230 18 C230 30 222 34 215 28Z" fill="#FF7D00"/>
+        <path d="M255 28 C268 15 250 5 240 18 C240 30 248 34 255 28Z" fill="#FF98A8"/>
+        <circle cx="242" cy="20" r="3" fill="#FFC89A"/><circle cx="225" cy="25" r="2.5" fill="#F5A91B"/>
+
+        <!-- Right-Center Tier -->
+        <path d="M360 48 C372 30 350 18 338 30 C338 48 350 55 360 48Z" fill="#FF7D00"/>
+        <path d="M342 42 C328 25 312 40 328 52 C342 52 350 45 342 42Z" fill="#FE676E"/>
+        <path d="M350 58 C362 70 340 78 332 62 C338 54 346 50 350 58Z" fill="#CD104D"/>
+        <path d="M328 52 C312 38 298 55 314 68 C328 66 332 58 328 52Z" fill="#FFC89A"/>
+        <circle cx="342" cy="46" r="2.8" fill="#F5A91B"/><circle cx="328" cy="56" r="2.5" fill="#FFB4C9"/>
+
+        <!-- Right Canopy Tier -->
+        <path d="M440 95 C455 80 448 60 428 65 C416 80 428 100 440 95Z" fill="#CD104D"/>
+        <path d="M422 90 C405 75 392 92 408 105 C425 105 432 95 422 90Z" fill="#F40E5E"/>
+        <path d="M435 78 C422 58 405 72 418 85 C430 85 440 82 435 78Z" fill="#FE676E"/>
+        <path d="M408 85 C392 68 378 85 394 100 C408 98 414 90 408 85Z" fill="#FF7D00"/>
+        <circle cx="425" cy="85" r="2.8" fill="#FFC89A"/><circle cx="405" cy="90" r="2.5" fill="#F5A91B"/>
+      </svg>
+
+      <!-- Option 3 Cross & Floral Wreath -->
+      <svg class="cross-wreath-svg" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="70" y="10" width="85" height="85" rx="3" transform="rotate(45 70 10)" stroke="#F5A91B" stroke-width="1.2" opacity="0.6"/>
+        <path d="M70 26 V114 M36 60 H104" stroke="#CD104D" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="70" cy="60" r="4" fill="#F5A91B"/>
+        <path d="M48 45 C40 38 48 26 58 35 C54 42 50 45 48 45Z" fill="#FFC89A"/>
+        <path d="M92 45 C100 38 92 26 82 35 C86 42 90 45 92 45Z" fill="#FFB4C9"/>
+        <path d="M46 76 C38 84 46 94 56 86 C52 80 48 76 46 76Z" fill="#FFB4C9"/>
+        <path d="M94 76 C102 84 94 94 84 86 C88 80 92 76 94 76Z" fill="#FFC89A"/>
+        <circle cx="48" cy="58" r="9" fill="#FE676E"/>
+        <circle cx="48" cy="58" r="5" fill="#CD104D"/>
+        <circle cx="92" cy="58" r="9" fill="#FE676E"/>
+        <circle cx="92" cy="58" r="5" fill="#CD104D"/>
+        <circle cx="70" cy="38" r="7" fill="#F40E5E"/>
+        <circle cx="70" cy="38" r="3.5" fill="#F5A91B"/>
+        <circle cx="70" cy="82" r="8" fill="#CD104D"/>
+        <circle cx="70" cy="82" r="4" fill="#FFC89A"/>
+        <circle cx="36" cy="46" r="3" fill="#FF7D00"/>
+        <circle cx="104" cy="46" r="3" fill="#FF7D00"/>
+      </svg>
+
+      <p class="display-font" style="font-size: 0.75rem; color: var(--palette-magenta); margin-bottom: 4px;">Together With Their Families</p>
+      
+      <h1 class="header-names" style="font-size: 2.45rem; margin: 8px 0 10px;">
+        Mina El-Sabaawy
+        <span class="header-ampersand">&amp;</span>
+        Sara George
+      </h1>
+
+      <p style="font-size: 0.9rem; color: var(--palette-orange); font-weight: 500;">Sunday, November 15, 2026 • 3:30 PM</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Saint Mark's Cathedral • Alexandria</p>
+      <button class="open-btn" onclick="openInvitation()">Open Invitation</button>
+    </div>
+  </div>
+
+  <!-- Main Invitation Content -->
+  <main class="container">
+    
+    <!-- Top Floral Arch Canopy -->
+    <svg class="bougainvillea-arch" viewBox="0 0 480 145" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 135 C70 40 180 15 240 15 C300 15 410 40 470 135" stroke="#684232" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M35 140 C95 60 185 30 240 30 C295 30 385 60 445 140" stroke="#8A5A44" stroke-width="2.2" stroke-linecap="round" opacity="0.8"/>
+      
+      <path d="M65 80 Q50 55 75 60 Q85 80 65 80Z" fill="#4B5E38"/>
+      <path d="M110 50 Q95 28 120 35 Q130 55 110 50Z" fill="#5F7449"/>
+      <path d="M170 32 Q155 12 180 18 Q190 38 170 32Z" fill="#718B57"/>
+      <path d="M310 32 Q325 12 300 18 Q290 38 310 32Z" fill="#718B57"/>
+      <path d="M370 50 Q385 28 360 35 Q350 55 370 50Z" fill="#5F7449"/>
+      <path d="M415 80 Q430 55 405 60 Q395 80 415 80Z" fill="#4B5E38"/>
+
+      <path d="M40 95 C25 80 32 60 52 65 C64 80 52 100 40 95Z" fill="#CD104D"/>
+      <path d="M58 90 C75 75 88 92 72 105 C55 105 48 95 58 90Z" fill="#F40E5E"/>
+      <path d="M45 78 C58 58 75 72 62 85 C50 85 40 82 45 78Z" fill="#FE676E"/>
+      <path d="M72 85 C88 68 102 85 86 100 C72 98 66 90 72 85Z" fill="#FF7D00"/>
+      <circle cx="55" cy="85" r="2.8" fill="#FFC89A"/><circle cx="75" cy="90" r="2.5" fill="#F5A91B"/>
+
+      <path d="M120 48 C108 30 130 18 142 30 C142 48 130 55 120 48Z" fill="#FF7D00"/>
+      <path d="M138 42 C152 25 168 40 152 52 C138 52 130 45 138 42Z" fill="#FE676E"/>
+      <path d="M130 58 C118 70 140 78 148 62 C142 54 134 50 130 58Z" fill="#CD104D"/>
+      <path d="M152 52 C168 38 182 55 166 68 C152 66 148 58 152 52Z" fill="#FFC89A"/>
+      <circle cx="138" cy="46" r="2.8" fill="#F5A91B"/><circle cx="152" cy="56" r="2.5" fill="#FFB4C9"/>
+
+      <path d="M225 18 C212 0 236 -8 246 8 C246 20 234 25 225 18Z" fill="#FE676E"/>
+      <path d="M246 14 C260 0 272 18 258 26 C246 26 238 22 246 14Z" fill="#F40E5E"/>
+      <path d="M236 26 C224 38 248 45 254 32 C248 24 242 22 236 26Z" fill="#CD104D"/>
+      <path d="M215 28 C202 15 220 5 230 18 C230 30 222 34 215 28Z" fill="#FF7D00"/>
+      <path d="M255 28 C268 15 250 5 240 18 C240 30 248 34 255 28Z" fill="#FF98A8"/>
+      <circle cx="242" cy="20" r="3" fill="#FFC89A"/><circle cx="225" cy="25" r="2.5" fill="#F5A91B"/>
+
+      <path d="M360 48 C372 30 350 18 338 30 C338 48 350 55 360 48Z" fill="#FF7D00"/>
+      <path d="M342 42 C328 25 312 40 328 52 C342 52 350 45 342 42Z" fill="#FE676E"/>
+      <path d="M350 58 C362 70 340 78 332 62 C338 54 346 50 350 58Z" fill="#CD104D"/>
+      <path d="M328 52 C312 38 298 55 314 68 C328 66 332 58 328 52Z" fill="#FFC89A"/>
+      <circle cx="342" cy="46" r="2.8" fill="#F5A91B"/><circle cx="328" cy="56" r="2.5" fill="#FFB4C9"/>
+
+      <path d="M440 95 C455 80 448 60 428 65 C416 80 428 100 440 95Z" fill="#CD104D"/>
+      <path d="M422 90 C405 75 392 92 408 105 C425 105 432 95 422 90Z" fill="#F40E5E"/>
+      <path d="M435 78 C422 58 405 72 418 85 C430 85 440 82 435 78Z" fill="#FE676E"/>
+      <path d="M408 85 C392 68 378 85 394 100 C408 98 414 90 408 85Z" fill="#FF7D00"/>
+      <circle cx="425" cy="85" r="2.8" fill="#FFC89A"/><circle cx="405" cy="90" r="2.5" fill="#F5A91B"/>
+    </svg>
+
+    <!-- Cross with Floral Wreath -->
+    <svg class="cross-wreath-svg" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="70" y="10" width="85" height="85" rx="3" transform="rotate(45 70 10)" stroke="#F5A91B" stroke-width="1.2" opacity="0.6"/>
+      <path d="M70 26 V114 M36 60 H104" stroke="#CD104D" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="70" cy="60" r="4" fill="#F5A91B"/>
+      <path d="M48 45 C40 38 48 26 58 35 C54 42 50 45 48 45Z" fill="#FFC89A"/>
+      <path d="M92 45 C100 38 92 26 82 35 C86 42 90 45 92 45Z" fill="#FFB4C9"/>
+      <path d="M46 76 C38 84 46 94 56 86 C52 80 48 76 46 76Z" fill="#FFB4C9"/>
+      <path d="M94 76 C102 84 94 94 84 86 C88 80 92 76 94 76Z" fill="#FFC89A"/>
+      <circle cx="48" cy="58" r="9" fill="#FE676E"/>
+      <circle cx="48" cy="58" r="5" fill="#CD104D"/>
+      <circle cx="92" cy="58" r="9" fill="#FE676E"/>
+      <circle cx="92" cy="58" r="5" fill="#CD104D"/>
+      <circle cx="70" cy="38" r="7" fill="#F40E5E"/>
+      <circle cx="70" cy="38" r="3.5" fill="#F5A91B"/>
+      <circle cx="70" cy="82" r="8" fill="#CD104D"/>
+      <circle cx="70" cy="82" r="4" fill="#FFC89A"/>
+      <circle cx="36" cy="46" r="3" fill="#FF7D00"/>
+      <circle cx="104" cy="46" r="3" fill="#FF7D00"/>
+    </svg>
+
+    <p class="display-font" style="font-size: 0.8rem; color: var(--palette-magenta);">Together with their families</p>
+    
+    <h1 class="header-names">
+      Mina El-Sabaawy
+      <span class="header-ampersand">&amp;</span>
+      Sara George
+    </h1>
+    
+    <div class="divider">❦</div>
+    
+    <p class="verse">
+      "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."
+      <span style="font-size: 0.85rem; font-style: normal; color: var(--palette-deep-berry); display: block; margin-top: 8px; font-weight: 500;">— Matthew 19:6</span>
+    </p>
+
+    <a class="cal-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Mina+and+Sara&dates=20261115T133000Z/20261115T160000Z&details=The+Holy+Matrimony+at+Saint+Mark's+Coptic+Orthodox+Cathedral&location=Saint+Mark's+Coptic+Orthodox+Cathedral,+Alexandria" target="_blank">
+      📅 Add to Google Calendar
+    </a>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-grid">
+      <div class="countdown-item"><span id="days">00</span><label>Days</label></div>
+      <div class="countdown-item"><span id="hours">00</span><label>Hours</label></div>
+      <div class="countdown-item"><span id="mins">00</span><label>Mins</label></div>
+      <div class="countdown-item"><span id="secs">00</span><label>Secs</label></div>
+    </div>
+
+    <!-- 9-Photo Slideshow -->
+    <section class="gallery-section">
+      <h3 style="font-size: 1.8rem; color: var(--palette-deep-berry); margin-bottom: 4px;">Moments</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted);">Swipe or click arrows to view</p>
+
+      <div class="carousel-container" id="carousel">
+        <button class="carousel-btn carousel-prev" onclick="moveSlide(-1)">❮</button>
+        <button class="carousel-btn carousel-next" onclick="moveSlide(1)">❯</button>
+
+        <div class="carousel-track" id="carousel-track">
+          <div class="carousel-slide"><img src="photo1.jpg" alt="Mina and Sara" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80'"></div>
+          <div class="carousel-slide"><img src="photo2.jpg" alt="Mina and Sara" onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80'"></div>
+          <div class="carousel-slide"><img src="photo3.jpg" alt="Mina and Sara" onerror="this.src='https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80'"></div>
+          <div class="carousel-slide"><img src="photo4.jpg" alt="Mina and Sara" onerror="this.src='https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=800&q=80'"></div>
+          <div class="carousel-slide"><img src="photo5.jpg" alt="Mina and Sara" onerror="this.src='https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80'"></div>
+          <div class="carousel-slide"><img src="photo6.jpg" alt="Mina and Sara" onerror="this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80'"></div>
+          <div class="carousel-slide"><img src="photo7.jpg" alt="Mina and Sara" onerror="this.src='https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80'"></div>
+          <div class="carousel-slide"><img src="photo8.jpg" alt="Mina and Sara" onerror="this.src='https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80'"></div>
+          <div class="carousel-slide"><img src="photo9.jpg" alt="Mina and Sara" onerror="this.src='https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=80'"></div>
+        </div>
+      </div>
+
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </section>
+
+    <!-- Church Ceremony Card -->
+    <section class="event-card">
+      <div class="event-tag">Holy Crowning Ceremony • صلاة الإكليل</div>
+      <h3>Saint Mark's Coptic Orthodox Cathedral</h3>
+      <div class="arabic-title">الكاتدرائية المرقسية بالإسكندرية</div>
+      
+      <p style="font-weight: 600; color: var(--palette-deep-berry); margin-bottom: 6px;">Sunday, November 15, 2026 • 3:30 PM</p>
+      <p class="event-location">Alexandria, Egypt<br>Please arrive by 3:15 PM for seating.</p>
+      
+      <a href="https://www.google.com/search?kgmid=/m/02x6qxt&q=%D8%A7%D9%84%D9%83%D8%A7%D8%AA%D8%AF%D8%B1%D8%A7%D8%A6%D9%8A%D8%A9+%D8%A7%D9%84%D9%85%D8%B1%D9%82%D8%B3%D9%8A%D8%A9+%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D9%83%D9%86%D8%AF%D8%B1%D9%8A%D8%A9." target="_blank" class="btn-link">Open Location in Google Maps</a>
+    </section>
+
+    <!-- RSVP Section & Wishes -->
+    <form id="rsvp-form" onsubmit="handleRSVP(event)">
+      <h2 style="font-size: 2rem; text-align: center; margin-bottom: 4px; color: var(--palette-deep-berry);">RSVP</h2>
+      <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-bottom: 24px;">Kindly confirm your attendance by November 1, 2026</p>
+
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" id="guest-name" required placeholder="First and Last Name" />
+      </div>
+
+      <div class="form-group">
+        <label>Attendance</label>
+        <select required>
+          <option value="">Will you be joining us at Church?</option>
+          <option value="yes">Joyfully accepts</option>
+          <option value="no">Regretfully declines</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Blessings & Warm Wishes</label>
+        <textarea id="guest-wish" rows="3" placeholder="Leave a blessing or congratulatory message for the couple..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send RSVP & Blessing</button>
+      <div id="confirmation-msg" style="display:none; text-align: center; color: var(--palette-deep-berry); font-weight: 600; margin-top: 18px;">
+        Thank you! Your response and blessing have been recorded.
+      </div>
+    </form>
+
+    <div class="wishes-board">
+      <h3 style="font-size: 1.4rem; color: var(--palette-deep-berry); text-align: center; margin-bottom: 16px;">Warm Wishes</h3>
+      <div id="wishes-container"></div>
+    </div>
+  </main>
+
+  <script>
+    /* 1. Generate Multi-Colored Floating Petals */
+    const petalsContainer = document.getElementById('petals-container');
+    const petalPalettes = [
+      'linear-gradient(135deg, #CD104D, #F40E5E)',
+      'linear-gradient(135deg, #F40E5E, #FE676E)',
+      'linear-gradient(135deg, #FE676E, #FF7D00)',
+      'linear-gradient(135deg, #FF7D00, #F5A91B)',
+      'linear-gradient(135deg, #FF98A8, #FFC89A)',
+      'linear-gradient(135deg, #FFB4C9, #FE676E)'
+    ];
+
+    for (let i = 0; i < 28; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      const size = Math.random() * 11 + 7;
+      petal.style.width = size + 'px';
+      petal.style.height = (size * 1.35) + 'px';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.background = petalPalettes[Math.floor(Math.random() * petalPalettes.length)];
+      petal.style.animationDuration = (Math.random() * 6 + 6) + 's';
+      petal.style.animationDelay = (Math.random() * 6) + 's';
+      petalsContainer.appendChild(petal);
+    }
+
+    /* 2. Audio Control (Starts and Loops at 2:05) */
+    const audio = document.getElementById('bg-audio');
+    const songStartTime = 125; // 2:05
+
+    function startMusic() {
+      if (!audio) return;
+      audio.currentTime = songStartTime;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          document.getElementById('music-btn').innerText = '🎵';
+        }).catch(err => {
+          console.log("Browser policy blocked autoplay. Guest can click music button:", err);
+        });
+      }
+    }
+
+    function openInvitation() {
+      const gate = document.getElementById('gate-screen');
+      gate.style.opacity = '0';
+      gate.style.transform = 'scale(1.04)';
+      setTimeout(() => gate.style.display = 'none', 800);
+
+      startMusic();
+    }
+
+    function toggleAudio() {
+      if (!audio) return;
+      if (audio.paused) {
+        if (audio.currentTime === 0) {
+          audio.currentTime = songStartTime;
+        }
+        audio.play().then(() => {
+          document.getElementById('music-btn').innerText = '🎵';
+        }).catch(() => {});
+      } else {
+        audio.pause();
+        document.getElementById('music-btn').innerText = '🔇';
+      }
+    }
+
+    audio.addEventListener('ended', () => {
+      audio.currentTime = songStartTime;
+      audio.play();
+    });
+
+    /* 3. Live Wishes Wall Submission */
+    function handleRSVP(e) {
+      e.preventDefault();
+      const name = document.getElementById('guest-name').value;
+      const wish = document.getElementById('guest-wish').value;
+
+      if (wish.trim() !== '') {
+        const item = document.createElement('div');
+        item.className = 'wish-item';
+        item.innerHTML = `<div class="wish-author">${name}</div><p>${wish}</p>`;
+        document.getElementById('wishes-container').prepend(item);
+      }
+
+      document.getElementById('confirmation-msg').style.display = 'block';
+      e.target.reset();
+    }
+
+    /* 4. Target Countdown: November 15, 2026, 3:30 PM (Alexandria) */
+    const targetDate = new Date("2026-11-15T15:30:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff > 0) {
+        document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+        document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+        document.getElementById('mins').innerText = Math.floor((diff % (1000 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+        document.getElementById('secs').innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+      }
+    }, 1000);
+
+    /* 5. 9-Photo Carousel with Touch Support & Auto-Slide */
+    const track = document.getElementById('carousel-track');
+    const slides = Array.from(track.children);
+    const dotsContainer = document.getElementById('carousel-dots');
+    let currentIndex = 0;
+    let autoSlideTimer;
+
+    slides.forEach((_, idx) => {
+      const dot = document.createElement('div');
+      dot.className = `carousel-dot ${idx === 0 ? 'active' : ''}`;
+      dot.onclick = () => goToSlide(idx);
+      dotsContainer.appendChild(dot);
+    });
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      const dots = dotsContainer.children;
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.toggle('active', i === currentIndex);
+      }
+    }
+
+    function moveSlide(direction) {
+      currentIndex = (currentIndex + direction + slides.length) % slides.length;
+      updateCarousel();
+      resetAutoSlide();
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateCarousel();
+      resetAutoSlide();
+    }
+
+    function startAutoSlide() {
+      autoSlideTimer = setInterval(() => {
+        moveSlide(1);
+      }, 4000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideTimer);
+      startAutoSlide();
+    }
+
+    startAutoSlide();
+
+    // Mobile touch swipe
+    let startX = 0;
+    let endX = 0;
+    const carouselElem = document.getElementById('carousel');
+
+    carouselElem.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    carouselElem.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      if (startX - endX > 40) moveSlide(1);
+      if (endX - startX > 40) moveSlide(-1);
+    }, { passive: true });
+  </script>
+</body>
+</html>
